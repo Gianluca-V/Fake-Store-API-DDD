@@ -1,0 +1,10 @@
+@host=http://localhost:5094
+
+POST {{host}}/Categories/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJEb21haW4uVXNlckFnZ3JlZ2F0ZS5WYWx1ZU9iamVjdHMuVXNlcklkIiwiZ2l2ZW5fbmFtZSI6InN0cmluZyIsImp0aSI6IjhjYmIyZTRjLWZmZWQtNDAwYy04MmI4LTkzOGJmNmRjYzYwOCIsImV4cCI6MTcwOTE2OTAwNSwiaXNzIjoiRmFrZVN0b3JlQVBJIiwiYXVkIjoiRmFrZVN0b3JlQVBJIn0.YDAEJTdNtf94Y6kbChrHBfk8VoWr0c2GJXw6qSMGHQI
+
+{
+    "name":"CategoryName2",
+    "image":"http://example.net"
+}

@@ -1,0 +1,14 @@
+@host=http://localhost:5094
+@id=d015df5e-aa3a-41df-8017-2c11c28e18a5
+
+PUT {{host}}/Products/{{id}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJEb21haW4uVXNlckFnZ3JlZ2F0ZS5WYWx1ZU9iamVjdHMuVXNlcklkIiwiZ2l2ZW5fbmFtZSI6IkdpYW5sdWNhIiwianRpIjoiM2EyZjM4MWQtYjI4ZS00MWRiLTgxZWUtZDQ5MmI5NjJhMTgyIiwiZXhwIjoxNzA4OTczMjY0LCJpc3MiOiJGYWtlU3RvcmVBUEkiLCJhdWQiOiJGYWtlU3RvcmVBUEkifQ.dLUqzN9ncfo9tkqNtL8b4MUPsDrYf598GwQJLMDEHcQ
+Content-Type: application/json
+
+{
+    "name": "Manaos",
+    "description": "Una bebiba3",
+    "price": 5,
+    "images":["http://example.com"],
+    "category": "CategoryName2"
+}

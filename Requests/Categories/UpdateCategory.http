@@ -1,0 +1,11 @@
+@host=http://localhost:5094
+@id=18507aab-f046-490c-86ae-6be78ea942a6
+
+PUT {{host}}/Categories/{{id}}
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJEb21haW4uVXNlckFnZ3JlZ2F0ZS5WYWx1ZU9iamVjdHMuVXNlcklkIiwiZ2l2ZW5fbmFtZSI6IkdpYW5sdWNhIiwianRpIjoiNTdiYmM1Y2YtYzYwZS00YWZjLWI4MmYtZjljMTY4ODE1M2M3IiwiZXhwIjoxNzA5MTc1MTU1LCJpc3MiOiJGYWtlU3RvcmVBUEkiLCJhdWQiOiJGYWtlU3RvcmVBUEkifQ.SvR9D27JkzhmpJdHoNZZFDCxGKeoXnkbg0QYTNrTzFQ
+
+{
+    "name":"Categoryname3aaaa",
+    "image":"http://example.net"
+}

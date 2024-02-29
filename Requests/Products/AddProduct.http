@@ -1,0 +1,14 @@
+@host=http://localhost:5094
+
+POST {{host}}/Products/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJEb21haW4uVXNlckFnZ3JlZ2F0ZS5WYWx1ZU9iamVjdHMuVXNlcklkIiwiZ2l2ZW5fbmFtZSI6IkdpYW5sdWNhIiwianRpIjoiM2EyZjM4MWQtYjI4ZS00MWRiLTgxZWUtZDQ5MmI5NjJhMTgyIiwiZXhwIjoxNzA4OTczMjY0LCJpc3MiOiJGYWtlU3RvcmVBUEkiLCJhdWQiOiJGYWtlU3RvcmVBUEkifQ.dLUqzN9ncfo9tkqNtL8b4MUPsDrYf598GwQJLMDEHcQ
+Content-Type: application/json
+
+{
+    "name": "Pepsi",
+    "description": "Una bebiba2",
+    "price": 12345,
+    "images":["http://example.com"],
+    "category": "CategoryName2"
+}
+

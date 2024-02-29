@@ -1,0 +1,5 @@
+@host=http://localhost:5094
+
+@productId=20c23037-4da4-457c-be38-35d6155037ae
+
+GET {{host}}/Products/{{productId}}

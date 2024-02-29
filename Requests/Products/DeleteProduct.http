@@ -1,0 +1,5 @@
+@host=http://localhost:5094
+
+@productId=b8514ec6-a2c7-480c-bd2c-db0dc7dc3c0f
+
+DELETE {{host}}/Products/{{productId}}

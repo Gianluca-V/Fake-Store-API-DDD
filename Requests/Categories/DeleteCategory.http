@@ -1,0 +1,5 @@
+@host=http://localhost:5094
+
+@categoryName=CategoryName2
+
+DELETE {{host}}/Categories/{{categoryName}}
