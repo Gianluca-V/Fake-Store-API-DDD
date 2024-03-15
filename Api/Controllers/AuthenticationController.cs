@@ -19,18 +19,18 @@ public class AuthenticationController : ControllerBase{
     }
 
     [HttpPost("Register")]
-    public IActionResult Register(RegisterRequest request){
+    public async Task<IActionResult> Register(RegisterRequest request){
         if (!ModelState.IsValid) return BadRequest();
-        var authResult = authenticationService.Register(request.Username, request.Email, request.Password);
+        var authResult = await authenticationService.Register(request.Username, request.Email, request.Password);
         var response = mapper.Map<AuthenticationResponse>(authResult);
 
         return Ok(response);
     }
 
     [HttpPost("Login")]
-    public IActionResult Login(LoginRequest request){
+    public async Task<IActionResult> Login(LoginRequest request){
         if (!ModelState.IsValid) return BadRequest();
-        var authResult = authenticationService.Login(request.Email, request.Password);
+        var authResult = await authenticationService.Login(request.Email, request.Password);
         var response = mapper.Map<AuthenticationResponse>(authResult);
 
         return Ok(response);

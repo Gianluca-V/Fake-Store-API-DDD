@@ -30,10 +30,10 @@ namespace Infrastructure.Persistence.Configurations
                  value => UserId.Create(value)
              );
 
-            builder.ComplexProperty(u => u.email);
+            builder.ComplexProperty(u => u.Email);
 
-            builder.Property(u => u.username);
-            builder.Property(u => u.password);
+            builder.Property(u => u.Username);
+            builder.Property(u => u.Password);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Application.Common.Interfaces.Persistence;
 using Domain.UserAggregate;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,14 +19,14 @@ namespace Infrastructure.Persistence.Repositories
         }
         public UserRepository() { }
 
-        public virtual void Add(User user)
+        public virtual async Task Add(User user)
         {
-            dbContext.Users.Add(user);
+            await dbContext.Users.AddAsync(user);
         }
 
-        public virtual User? GetUserByEmail(string email)
+        public virtual async Task<User?> GetUserByEmail(string email)
         {
-            return dbContext.Users.SingleOrDefault(u => u.email.value == email);
+            return await dbContext.Users.FirstOrDefaultAsync(u => u.Email.value == email);
         }
     }
 }

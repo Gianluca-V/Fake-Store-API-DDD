@@ -20,9 +20,9 @@ namespace Tests.UnitTests.DomainTest
             User user = User.Create(DomainUtils.UserName, DomainUtils.UserEmail,DomainUtils.UserPassword);
 
             Assert.IsType<UserId>(user.Id);
-            Assert.Equal(DomainUtils.UserName, user.username);
-            Assert.Equal(DomainUtils.UserEmail, user.email.value);
-            Assert.Equal(DomainUtils.UserPassword, user.password);
+            Assert.Equal(DomainUtils.UserName, user.Username);
+            Assert.Equal(DomainUtils.UserEmail, user.Email.value);
+            Assert.Equal(DomainUtils.UserPassword, user.Password);
             Assert.IsType<User>(user);
         }
 

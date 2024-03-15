@@ -30,7 +30,7 @@ namespace Infrastructure.Authentication
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                new Claim(JwtRegisteredClaimNames.GivenName,user.username),
+                new Claim(JwtRegisteredClaimNames.GivenName,user.Username),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
             var securityToken = new JwtSecurityToken(

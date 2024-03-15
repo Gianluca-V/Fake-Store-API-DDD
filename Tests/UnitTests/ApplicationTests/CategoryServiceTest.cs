@@ -172,7 +172,7 @@ namespace Tests.UnitTests.ApplicationTests
         }
 
         [Fact]
-        public async void CreateCategory_WhenCategoryDoesExist_ShouldThrowBadRequestException()
+        public async void CreateCategory_WhenCategoryDoesExist_ShouldThrowAlreadyExistException()
         {
             //Arrange
             var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
@@ -247,16 +247,16 @@ namespace Tests.UnitTests.ApplicationTests
 
             Category expectedCategory = ApplicationUtils.Category;
 
-            categoryRepository.Setup(x => x.GetCategoryById(It.IsAny<string>())).ReturnsAsync(expectedCategory);
+            categoryRepository.Setup(x => x.GetCategoryByName(It.IsAny<string>())).ReturnsAsync(expectedCategory);
             categoryRepository.Setup(x => x.DeleteCategory(It.IsAny<string>())).ReturnsAsync(true);
 
 
             // Act
-            await categoryService.DeleteCategory(ApplicationUtils.Category.Id.value.ToString());
+            await categoryService.DeleteCategory(ApplicationUtils.Category.Name.value.ToString());
 
             // Assert
-            categoryRepository.Verify(x => x.GetCategoryById(ApplicationUtils.Category.Id.value.ToString()), Times.Once);
-            categoryRepository.Verify(x => x.DeleteCategory(ApplicationUtils.Category.Id.value.ToString()), Times.Once);
+            categoryRepository.Verify(x => x.GetCategoryByName(ApplicationUtils.Category.Name.value.ToString()), Times.Once);
+            categoryRepository.Verify(x => x.DeleteCategory(ApplicationUtils.Category.Name.value.ToString()), Times.Once);
 
             categoryRepository.VerifyNoOtherCalls();
         }
@@ -271,10 +271,10 @@ namespace Tests.UnitTests.ApplicationTests
 
             Category expectedCategory = null;
 
-            categoryRepository.Setup(x => x.GetCategoryById(It.IsAny<string>())).ReturnsAsync(expectedCategory);
+            categoryRepository.Setup(x => x.GetCategoryByName(It.IsAny<string>())).ReturnsAsync(expectedCategory);
 
             //Act
-            var exception = await Assert.ThrowsAsync<NotFoundException>(async () => await categoryService.DeleteCategory(ApplicationUtils.Category.Id.value.ToString()));
+            var exception = await Assert.ThrowsAsync<NotFoundException>(async () => await categoryService.DeleteCategory(ApplicationUtils.Category.Name.value.ToString()));
 
             //Assert
             Assert.NotNull(exception);
