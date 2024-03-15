@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,14 +21,15 @@ namespace Infrastructure.Persistence.Repositories
         {
             dbContext = DbContext;
         }
+        public ProductRepository(){}
 
-        public async Task CreateProduct(Product product)
+        public virtual async Task CreateProduct(Product product)
         {
             await dbContext.Products.AddAsync(product);
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task<Product?> GetProductById(string Id)
+        public virtual async Task<Product?> GetProductById(string Id)
         {
             ProductId productId;
             try
@@ -44,12 +46,12 @@ namespace Infrastructure.Persistence.Repositories
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<List<Product>> GetProducts()
+        public virtual async Task<List<Product>> GetProducts()
         {
             return await dbContext.Products.Include(p => p.Category).ToListAsync();
         }
 
-        public async Task<Product?> UpdateProduct(string Id, string Name, string Description, float Price, Category Category, List<string> Images)
+        public virtual async Task<Product?> UpdateProduct(string Id, string Name, string Description, float Price, Category Category, List<string> Images)
         {
             Product? product = await GetProductById(Id);
             if (product is null) return product;
@@ -63,7 +65,7 @@ namespace Infrastructure.Persistence.Repositories
             return product;
         }
 
-        public async Task<bool> DeleteProduct(string Id)
+        public virtual async Task<bool> DeleteProduct(string Id)
         {
             try
             {

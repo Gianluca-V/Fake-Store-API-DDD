@@ -11,12 +11,12 @@ namespace Infrastructure.Persistence.Repositories
     public class UserRepository : IUserRepository
     {
         private static readonly List<User> users = new();
-        public void Add(User user)
+        public virtual void Add(User user)
         {
             users.Add(user);
         }
 
-        public User? GetUserByEmail(string email)
+        public virtual User? GetUserByEmail(string email)
         {
             return users.SingleOrDefault(u => u.email.value == email);
         }

@@ -23,18 +23,18 @@ namespace Infrastructure.Persistence.Repositories
             dbContext = DbContext;
         }
 
-        public async Task CreateCategory(Category category)
+        public virtual async Task CreateCategory(Category category)
         {
             await dbContext.Categories.AddAsync(category);
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task<List<Category>> GetCategories()
+        public virtual async Task<List<Category>> GetCategories()
         {
             return await dbContext.Categories.ToListAsync();        //when a field has null data throws an error
         }
 
-        public async Task<Category?> GetCategoryById(string Id)
+        public virtual async Task<Category?> GetCategoryById(string Id)
         {
             CategoryId categoryId;
             try
@@ -48,12 +48,12 @@ namespace Infrastructure.Persistence.Repositories
             return await dbContext.Categories.FindAsync(categoryId);
         }
 
-        public async Task<Category?> GetCategoryByName(string Name)
+        public virtual async Task<Category?> GetCategoryByName(string Name)
         {
             return await dbContext.Categories.Where(c => c.Name.value == Name).FirstOrDefaultAsync();
         }
 
-        public async Task<Category?> UpdateCategory(string Id, string Name, string Image)
+        public virtual async Task<Category?> UpdateCategory(string Id, string Name, string Image)
         {
             Category? category = await GetCategoryById(Id);
             if (category is null) return category;
@@ -63,7 +63,7 @@ namespace Infrastructure.Persistence.Repositories
             return category;
         }
 
-        public async Task<bool> DeleteCategory(string Name)
+        public virtual async Task<bool> DeleteCategory(string Name)
         {
             try
             {

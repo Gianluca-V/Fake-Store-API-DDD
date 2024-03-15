@@ -14,7 +14,7 @@ namespace Tests.UnitTests.DomainTest
     public class UserTest
     {
         [Fact]
-        public void Create_User_Should_Return_User()
+        public void CreateUser_WhenDataIsValid_ShouldReturnUser()
         {
 
             User user = User.Create(DomainUtils.UserName, DomainUtils.UserEmail,DomainUtils.UserPassword);
@@ -27,7 +27,7 @@ namespace Tests.UnitTests.DomainTest
         }
 
         [Fact]
-        public void Create_User_Id_Unique_Should_Return_User_Id()
+        public void CreateUniqueUserId_ShouldReturnUserId()
         {
             UserId userId = UserId.CreateUnique();
 
@@ -35,7 +35,7 @@ namespace Tests.UnitTests.DomainTest
         }
 
         [Fact]
-        public void Create_User_Email_Should_Return_User_Email()
+        public void CreateUserEmail_WhenValueIsValid_ShouldReturnUserEmail()
         {
             UserEmail userEmail = UserEmail.CreateEmail(DomainUtils.UserEmail);
 
@@ -54,7 +54,7 @@ namespace Tests.UnitTests.DomainTest
         [InlineData("us@erEma@il.com")]
         [InlineData("user@Email.c")]
         [InlineData("user@Email .com")]
-        public void Create_User_Email_Should_Throw_Exception_On_Invalid_Email(string email)
+        public void CreateUserEmail_WhenValueIsNotValid_ShouldThrowException(string email)
         {
             Assert.Throws<ValidationException>(() => { UserEmail.CreateEmail(email); });
         }

@@ -8,23 +8,23 @@ namespace Tests.UnitTests.DomainTest
     public static class DomainUtils
     {
         //Product Test Utils
-        public static string ProductName = "ProductName";
-        public static string ProductDescription = "ProductDescription";
-        public static float ProductPrice = 100;
-        public static List<string> ProductImages = ["http://example.net"];
+        public static readonly string ProductName = "ProductName";
+        public static readonly string ProductDescription = "ProductDescription";
+        public static readonly float ProductPrice = 100;
+        public static readonly List<string> ProductImages = ["http://example.net"];
 
         //Category Test Utils
-        public static string CategoryName = "CategoryName";
-        public static string CategoryImage = "http://example.net/";
+        public static readonly string CategoryName = "CategoryName";
+        public static readonly string CategoryImage = "http://example.net/";
 
         //User Test Utils
-        public static string UserName = "UserName";
-        public static string UserEmail = "UserEmail@email.com";
-        public static string UserPassword = "UserPassword";
+        public static readonly string UserName = "UserName";
+        public static readonly string UserEmail = "UserEmail@email.com";
+        public static readonly string UserPassword = "UserPassword";
 
         //Instances Test Utils
-        public static Category Category = Category.Create(CategoryName, CategoryImage);
-        public static Product Product = Product.Create(ProductName, ProductDescription, ProductPrice, Category, ProductImages);
+        public static readonly Category Category = Category.Create(CategoryName, CategoryImage);
+        public static readonly Product Product = Product.Create(ProductName, ProductDescription, ProductPrice, Category, ProductImages);
     }
 }
 

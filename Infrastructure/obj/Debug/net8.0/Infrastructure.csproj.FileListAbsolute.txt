@@ -17,3 +17,4 @@ C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Infrastructure\obj\Debug\net8.0\Infr
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Infrastructure\obj\Debug\net8.0\Infrastructure.csproj.CopyComplete
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Infrastructure\bin\Debug\net8.0\Infrastructure.runtimeconfig.json
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Infrastructure\obj\Debug\net8.0\Infrastructure.sourcelink.json

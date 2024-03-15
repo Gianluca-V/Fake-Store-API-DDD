@@ -1,14 +1,16 @@
-using System;
-using System.Collections.Generic;
-using Domain.CategoryAggregate;
+﻿using Domain.CategoryAggregate;
 using Domain.ProductAggregate;
-using Domain.ProductAggregate.ValueObjects;
 using Domain.UserAggregate;
 using Infrastructure.Authentication;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Tests.UnitTests.InfrastructureTest
+namespace Tests.UnitTests.ApplicationTests
 {
-    public static class InfrastructureUtils
+    public static class ApplicationUtils
     {
         //Product Test Utils
         public static readonly string ProductName = "ProductName";
@@ -37,8 +39,8 @@ namespace Tests.UnitTests.InfrastructureTest
         //Instances Test Utils
         public static readonly Category Category = Category.Create(CategoryName, CategoryImage);
         public static readonly Product Product = Product.Create(ProductName, ProductDescription, ProductPrice, Category, ProductImages);
-        public static readonly User User = User.Create(UserName,UserEmail,UserPassword);
-    
+        public static readonly User User = User.Create(UserName, UserEmail, UserPassword);
+
         //Functions Test Utils
         public static Product GetRandomProduct()
         {
@@ -47,6 +49,12 @@ namespace Tests.UnitTests.InfrastructureTest
 
             return productSample;
         }
+        public static Category GetRandomCategory()
+        {
+            var categorySample = Category;
+            categorySample.Name = Domain.CategoryAggregate.ValueObjects.CategoryName.CreateName(CategoryName + new Random().Next());
+
+            return categorySample;
+        }
     }
 }
-

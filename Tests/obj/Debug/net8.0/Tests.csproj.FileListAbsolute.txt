@@ -145,3 +145,6 @@ C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\obj\Debug\net8.0\refint\Tests.
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\obj\Debug\net8.0\Tests.pdb
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\obj\Debug\net8.0\Tests.genruntimeconfig.cache
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\obj\Debug\net8.0\ref\Tests.dll
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Moq.dll
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\obj\Debug\net8.0\Tests.sourcelink.json

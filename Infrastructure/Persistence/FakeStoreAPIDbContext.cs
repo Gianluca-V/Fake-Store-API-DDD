@@ -14,6 +14,7 @@ namespace Infrastructure.Persistence
         public FakeStoreAPIDbContext(DbContextOptions<FakeStoreAPIDbContext> options) : base(options)
         {
         }
+        public FakeStoreAPIDbContext() { }
 
         public DbSet<Product> Products { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;

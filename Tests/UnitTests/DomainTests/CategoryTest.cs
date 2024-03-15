@@ -9,11 +9,13 @@ namespace Tests.UnitTests.DomainTest
     public class CategoryTest
     {
         [Fact]
-        public void Create_Category_Should_Return_Category()
+        public void CreateCategory_WhenDataIsValid_ShouldReturnCategory()
         {
-
+            //Arrange
+            //Act
             Category category = Category.Create(DomainUtils.CategoryName, DomainUtils.CategoryImage);
 
+            //Assert
             Assert.IsType<CategoryId>(category.Id);
             Assert.Equal(DomainUtils.CategoryName, category.Name.value);
             Assert.Equal(DomainUtils.CategoryImage, category.Image);
@@ -21,26 +23,35 @@ namespace Tests.UnitTests.DomainTest
         }
 
         [Fact]
-        public void Create_Category_Id_Unique_Should_Return_Category_Id()
+        public void CreateUniqueCategoryId_ShouldReturnCategoryId()
         {
+            //Arrange
+            //Act
             CategoryId categoryId = CategoryId.CreateUnique();
 
+            //Assert
             Assert.IsType<CategoryId>(categoryId);
         }
 
         [Fact]
-        public void Create_Category_Id_Should_Return_Category_Id()
+        public void CreateCategoryId_ShouldReturnCategoryId()
         {
+            //Arrange
+            //Act
             CategoryId categoryId = CategoryId.Create(Guid.NewGuid());
 
+            //Assert
             Assert.IsType<CategoryId>(categoryId);
         }
 
         [Fact]
-        public void Create_Category_Name_Should_Return_Category_Name()
+        public void CreateCategoryName_WhenNameIsNotEmpty_ShouldReturnCategoryName()
         {
+            //Arrange
+            //Act
             CategoryName categoryName = CategoryName.CreateName(DomainUtils.CategoryName);
 
+            //Assert
             Assert.Equal(DomainUtils.CategoryName, categoryName.value);
             Assert.IsType<CategoryName>(categoryName);
         }
@@ -48,8 +59,11 @@ namespace Tests.UnitTests.DomainTest
         [Theory]
         [InlineData("")]
         [InlineData(" ")]
-        public void Create_Category_Name_Should_Throw_Exception_On_Empty_Name(string name)
+        public void CreateCategoryName_WhenNameIsEmpty_ShouldThrowException(string name)
         {
+            //Arrange
+            //Act
+            //Assert
             Assert.Throws<ValidationException>(() => { CategoryName.CreateName(name); });
         }
     }

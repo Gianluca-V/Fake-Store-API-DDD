@@ -25,6 +25,7 @@ namespace Application.Services.CategoryService
 
         public async Task<CategoryResult> CreateCategory(string Name, string Image)
         {
+            if (await categoryRepository.GetCategoryByName(Name) is not null) throw new AlreadyExistException("Category already exist");
             Category category = Category.Create(Name,Image);
             await categoryRepository.CreateCategory(category);
             return new CategoryResult(category);

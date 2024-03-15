@@ -13,3 +13,4 @@ C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Application\bin\Debug\net8.0\Domain.
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Application\bin\Debug\net8.0\Domain.pdb
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Application\obj\Debug\net8.0\Application.csproj.CopyComplete
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Application\obj\Debug\net8.0\Application.sourcelink.json
