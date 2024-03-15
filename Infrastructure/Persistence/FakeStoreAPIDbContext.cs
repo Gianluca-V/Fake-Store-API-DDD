@@ -1,5 +1,6 @@
 ﻿using Domain.CategoryAggregate;
 using Domain.ProductAggregate;
+using Domain.UserAggregate;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Infrastructure.Persistence
 
         public DbSet<Product> Products { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;
+        public DbSet<User> Users { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -9,3 +9,4 @@ C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Contracts\obj\Debug\net8.0\Contracts
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Contracts\obj\Debug\net8.0\refint\Contracts.dll
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Contracts\obj\Debug\net8.0\Contracts.pdb
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Contracts\obj\Debug\net8.0\ref\Contracts.dll
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Contracts\obj\Debug\net8.0\Contracts.sourcelink.json

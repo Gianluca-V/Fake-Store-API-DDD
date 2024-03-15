@@ -7,13 +7,16 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.UserAggregate.ValueObjects
 {
+    [ComplexType]
     public class UserEmail : ValueObject
     {
-        public string value { get; }
+        public string value { get; private set; }
 
+        private UserEmail() { }
         private UserEmail(string Value)
         {
             ValueValidation(Value);

@@ -10,15 +10,22 @@ namespace Infrastructure.Persistence.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private static readonly List<User> users = new();
+        private readonly FakeStoreAPIDbContext dbContext;
+
+        public UserRepository(FakeStoreAPIDbContext DbContext)
+        {
+            dbContext = DbContext;
+        }
+        public UserRepository() { }
+
         public virtual void Add(User user)
         {
-            users.Add(user);
+            dbContext.Users.Add(user);
         }
 
         public virtual User? GetUserByEmail(string email)
         {
-            return users.SingleOrDefault(u => u.email.value == email);
+            return dbContext.Users.SingleOrDefault(u => u.email.value == email);
         }
     }
 }

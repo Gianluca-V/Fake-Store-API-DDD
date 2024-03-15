@@ -146,3 +146,4 @@ C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Api\bin\Debug\net8.0\Swashbuckle.Asp
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Api\obj\Debug\net8.0\Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Api\obj\Debug\net8.0\Api.sourcelink.json

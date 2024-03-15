@@ -15,22 +15,16 @@ namespace Domain.UserAggregate
         public UserEmail email { get; set; } = null!;
         public string password { get; set; } = null!;
 
-        private User(UserId Id, string Username, UserEmail Email, string Password) : base(Id)
-        {
-            id = Id;
-            username = Username;
-            email = Email;
-            password = Password;
-        }
+        private User() { }
 
         public static User Create(string Username, string Email, string Password)
         {
-            return new User(
-                UserId.CreateUnique(),
-                Username,
-                UserEmail.CreateEmail(Email),
-                Password
-            );
+            return new User {
+                id = UserId.CreateUnique(),
+                username = Username,
+                email = UserEmail.CreateEmail(Email),
+                password = Password
+            };
         }
     }
 }
