@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 using Application.Services.CategoryService;
+using Application.Common.Interfaces.Persistence;
 
 namespace Tests.UnitTests.ApplicationTests
 {
@@ -22,8 +23,7 @@ namespace Tests.UnitTests.ApplicationTests
         public async void GetCategories_WhenThereAreCategories_ShouldReturnCategoryResult()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var categoryRepository = new Mock<ICategoryRepository>();
             var categoryService = new CategoryService(categoryRepository.Object);
 
             List<Category> expectedCategories = new List<Category>()
@@ -50,8 +50,7 @@ namespace Tests.UnitTests.ApplicationTests
         public async void GetCategories_WhenThereAreNoCategories_ShouldReturnEmptyList()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var categoryRepository = new Mock<ICategoryRepository>();
             var categoryService = new CategoryService(categoryRepository.Object);
 
             List<Category> expectedCategories = new List<Category>();
@@ -69,8 +68,7 @@ namespace Tests.UnitTests.ApplicationTests
         public async void GetCategoryById_WhenIdDoesExist_ShouldReturnCategoryResult()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var categoryRepository = new Mock<ICategoryRepository>();
             var categoryService = new CategoryService(categoryRepository.Object);
 
             Category expectedCategory = ApplicationUtils.Category;
@@ -91,8 +89,7 @@ namespace Tests.UnitTests.ApplicationTests
         public async void GetCategoryById_WhenIdDoesNotExist_ShouldThrowNotFoundException()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var categoryRepository = new Mock<ICategoryRepository>();
             var categoryService = new CategoryService(categoryRepository.Object);
 
             Category expectedCategory = null;
@@ -111,8 +108,7 @@ namespace Tests.UnitTests.ApplicationTests
         public async void GetCategoryByName_WhenNameDoesExist_ShouldReturnCategoryResult()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var categoryRepository = new Mock<ICategoryRepository>();
             var categoryService = new CategoryService(categoryRepository.Object);
 
             Category expectedCategory = ApplicationUtils.Category;
@@ -133,8 +129,7 @@ namespace Tests.UnitTests.ApplicationTests
         public async void GetCategoryByName_WhenNameDoesNotExist_ShouldThrowNotFoundException()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var categoryRepository = new Mock<ICategoryRepository>();
             var categoryService = new CategoryService(categoryRepository.Object);
 
             Category expectedCategory = null;
@@ -153,8 +148,7 @@ namespace Tests.UnitTests.ApplicationTests
         public async void CreateCategory_WhenCategoryDoesNotExist_ShouldReturnCategoryResult()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var categoryRepository = new Mock<ICategoryRepository>();
             var categoryService = new CategoryService(categoryRepository.Object);
 
             Category expectedCategory = null;
@@ -175,8 +169,7 @@ namespace Tests.UnitTests.ApplicationTests
         public async void CreateCategory_WhenCategoryDoesExist_ShouldThrowAlreadyExistException()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var categoryRepository = new Mock<ICategoryRepository>();
             var categoryService = new CategoryService(categoryRepository.Object);
 
             Category expectedCategory = ApplicationUtils.Category;
@@ -196,8 +189,7 @@ namespace Tests.UnitTests.ApplicationTests
         public async void UpdateCategory_WhenCategoryDoesExist_ShouldReturnCategoryResult()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var categoryRepository = new Mock<ICategoryRepository>();
             var categoryService = new CategoryService(categoryRepository.Object);
 
             Category expectedCategory = ApplicationUtils.GetRandomCategory();
@@ -219,8 +211,7 @@ namespace Tests.UnitTests.ApplicationTests
         public async void UpdateCategory_WhenCategoryDoesNotExist_ShouldThrowNotFoundException()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var categoryRepository = new Mock<ICategoryRepository>();
             var categoryService = new CategoryService( categoryRepository.Object);
 
             Category expectedCategory = null;
@@ -241,8 +232,7 @@ namespace Tests.UnitTests.ApplicationTests
         public async void DeleteCategory_WhenIdDoesExist_ShouldReturnTask()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var categoryRepository = new Mock<ICategoryRepository>();
             var categoryService = new CategoryService(categoryRepository.Object);
 
             Category expectedCategory = ApplicationUtils.Category;
@@ -265,8 +255,7 @@ namespace Tests.UnitTests.ApplicationTests
         public async void DeleteCategory_WhenIdDoesNotExist_ShouldThrowNotFoundException()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var categoryRepository = new Mock<ICategoryRepository>();
             var categoryService = new CategoryService(categoryRepository.Object);
 
             Category expectedCategory = null;

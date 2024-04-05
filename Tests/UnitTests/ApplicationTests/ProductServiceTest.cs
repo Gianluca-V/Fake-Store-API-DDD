@@ -12,6 +12,7 @@ using Domain.ProductAggregate;
 using Domain.Common.Exceptions;
 using Domain.CategoryAggregate;
 using Domain.ProductAggregate.ValueObjects;
+using Application.Common.Interfaces.Persistence;
 
 namespace Tests.UnitTests.ApplicationTests
 {
@@ -21,9 +22,8 @@ namespace Tests.UnitTests.ApplicationTests
         public async void GetProducts_WhenThereAreProducts_ShouldReturnProductResult()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var productRepository = new Mock<ProductRepository>(dbContext);
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var productRepository = new Mock<IProductRepository>();
+            var categoryRepository = new Mock<ICategoryRepository>();
             var productService = new ProductService(productRepository.Object, categoryRepository.Object);
 
             List<Product> expectedProducts = new List<Product>()
@@ -49,9 +49,8 @@ namespace Tests.UnitTests.ApplicationTests
         public async void GetProducts_WhenThereAreNoProducts_ShouldReturnEmptyList()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var productRepository = new Mock<ProductRepository>(dbContext);
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var productRepository = new Mock<IProductRepository>();
+            var categoryRepository = new Mock<ICategoryRepository>();
             var productService = new ProductService(productRepository.Object, categoryRepository.Object);
 
             List<Product> expectedProducts = new List<Product>();
@@ -68,9 +67,8 @@ namespace Tests.UnitTests.ApplicationTests
         public async void GetProduct_WhenIdDoesExist_ShouldReturnProductResult()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var productRepository = new Mock<ProductRepository>(dbContext);
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var productRepository = new Mock<IProductRepository>();
+            var categoryRepository = new Mock<ICategoryRepository>();
             var productService = new ProductService(productRepository.Object, categoryRepository.Object);
 
             Product expectedProduct = ApplicationUtils.Product;
@@ -91,9 +89,8 @@ namespace Tests.UnitTests.ApplicationTests
         public async void GetProduct_WhenIdDoesNotExist_ShouldThrowNotFoundException()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var productRepository = new Mock<ProductRepository>(dbContext);
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var productRepository = new Mock<IProductRepository>();
+            var categoryRepository = new Mock<ICategoryRepository>();
             var productService = new ProductService(productRepository.Object, categoryRepository.Object);
 
             Product expectedProduct = null;
@@ -112,9 +109,8 @@ namespace Tests.UnitTests.ApplicationTests
         public async void CreateProduct_WhenCategoryDoesExist_ShouldReturnProductResult()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var productRepository = new Mock<ProductRepository>(dbContext);
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var productRepository = new Mock<IProductRepository>();
+            var categoryRepository = new Mock<ICategoryRepository>();
             var productService = new ProductService(productRepository.Object, categoryRepository.Object);
 
             Category expectedCategory = ApplicationUtils.Category;
@@ -135,9 +131,8 @@ namespace Tests.UnitTests.ApplicationTests
         public async void CreateProduct_WhenCategoryDoesNotExist_ShouldThrowBadRequestException()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var productRepository = new Mock<ProductRepository>(dbContext);
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var productRepository = new Mock<IProductRepository>();
+            var categoryRepository = new Mock<ICategoryRepository>();
             var productService = new ProductService(productRepository.Object, categoryRepository.Object);
 
             Category expectedCategory = null;
@@ -157,9 +152,8 @@ namespace Tests.UnitTests.ApplicationTests
         public async void UpdateProduct_WhenCategoryDoesExistAndProductDoesExist_ShouldReturnProductResult()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var productRepository = new Mock<ProductRepository>(dbContext);
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var productRepository = new Mock<IProductRepository>();
+            var categoryRepository = new Mock<ICategoryRepository>();
             var productService = new ProductService(productRepository.Object, categoryRepository.Object);
 
             Category expectedCategory = ApplicationUtils.Category;
@@ -185,9 +179,8 @@ namespace Tests.UnitTests.ApplicationTests
         public async void UpdateProduct_WhenCategoryDoesNotExistAndProductDoesExist_ShouldThrowBadRequestException()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var productRepository = new Mock<ProductRepository>(dbContext);
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var productRepository = new Mock<IProductRepository>();
+            var categoryRepository = new Mock<ICategoryRepository>();
             var productService = new ProductService(productRepository.Object, categoryRepository.Object);
 
             Category expectedCategory = null;
@@ -211,9 +204,8 @@ namespace Tests.UnitTests.ApplicationTests
         public async void UpdateProduct_WhenCategoryDoesExistAndProductDoesNotExist_ShouldThrowNotFoundException()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var productRepository = new Mock<ProductRepository>(dbContext);
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var productRepository = new Mock<IProductRepository>();
+            var categoryRepository = new Mock<ICategoryRepository>();
             var productService = new ProductService(productRepository.Object, categoryRepository.Object);
 
             Category expectedCategory = ApplicationUtils.Category;
@@ -236,9 +228,8 @@ namespace Tests.UnitTests.ApplicationTests
         public async void DeleteProduct_WhenIdDoesExist_ShouldReturnTask()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var productRepository = new Mock<ProductRepository>(dbContext);
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var productRepository = new Mock<IProductRepository>();
+            var categoryRepository = new Mock<ICategoryRepository>();
             var productService = new ProductService(productRepository.Object, categoryRepository.Object);
 
             Product expectedProduct = ApplicationUtils.Product;
@@ -261,9 +252,8 @@ namespace Tests.UnitTests.ApplicationTests
         public async void DeleteProduct_WhenIdDoesNotExist_ShouldThrowNotFoundException()
         {
             //Arrange
-            var dbContext = new Mock<FakeStoreAPIDbContext>().Object;
-            var productRepository = new Mock<ProductRepository>(dbContext);
-            var categoryRepository = new Mock<CategoryRepository>(dbContext);
+            var productRepository = new Mock<IProductRepository>();
+            var categoryRepository = new Mock<ICategoryRepository>();
             var productService = new ProductService(productRepository.Object, categoryRepository.Object);
 
             Product expectedProduct = null;

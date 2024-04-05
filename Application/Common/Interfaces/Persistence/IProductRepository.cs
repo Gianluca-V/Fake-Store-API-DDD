@@ -12,6 +12,7 @@ namespace Application.Common.Interfaces.Persistence
     public interface IProductRepository
     {
         Task<List<Product>> GetProducts();
+        Task<List<Product>> GetProducts(int page, int pageSize);
         Task<Product?> GetProductById(string Id);
         Task CreateProduct(Product product);
         Task<Product> UpdateProduct(string Id, string Name, string Description, float Price, Category Category, List<string> Images);

@@ -11,5 +11,5 @@ namespace Contracts.Category
     (
         [Required] string name,
         string? image
-    ); 
+    );
 }

@@ -148,3 +148,17 @@ C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\obj\Debug\net8.0\ref\Tests.dll
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Castle.Core.dll
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Moq.dll
 C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\obj\Debug\net8.0\Tests.sourcelink.json
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Api.deps.json
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Api.runtimeconfig.json
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\appsettings.json
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Api.exe
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Mapster.DependencyInjection.dll
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Api.dll
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Contracts.dll
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Api.pdb
+C:\Users\gianl\Desktop\ASP.NET\FakeStoreAPI\Tests\bin\Debug\net8.0\Contracts.pdb

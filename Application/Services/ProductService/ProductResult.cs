@@ -1,4 +1,5 @@
-﻿using Domain.ProductAggregate;
+﻿using Domain.Common.Models;
+using Domain.ProductAggregate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,9 @@ namespace Application.Services.ProductService
     public record ProductResult
     (
       Product product
+    );
+
+    public record ProductPagedList(
+        PagedList<ProductResult> PagedList
     );
 }

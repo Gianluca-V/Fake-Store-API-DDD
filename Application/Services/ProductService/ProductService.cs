@@ -3,6 +3,7 @@ using Application.Services.CategoryService;
 using Domain.CategoryAggregate;
 using Domain.CategoryAggregate.ValueObjects;
 using Domain.Common.Exceptions;
+using Domain.Common.Models;
 using Domain.ProductAggregate;
 using Domain.ProductAggregate.ValueObjects;
 using System;
@@ -33,6 +34,13 @@ namespace Application.Services.ProductService
         {
             List<Product> products = await productRepository.GetProducts();
             return products.Select(product => new ProductResult(product));
+        }
+
+        public async Task<ProductPagedList> GetProducts(int page, int pageSize)
+        {
+            List<Product> products = await productRepository.GetProducts(page, pageSize);
+            var productsResultList = products.Select(product => new ProductResult(product));
+            return new ProductPagedList(PagedList<ProductResult>.Create(productsResultList.ToList(), page, pageSize));
         }
 
         public async Task<ProductResult> CreateProduct(string Name, string Description, float Price, string Category, List<string> Images)

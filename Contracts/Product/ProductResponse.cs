@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Contracts.Product
 {
+    public record ProductPaginatedResponse(
+      List<ProductResponse> ProductList,
+      PagedList PaginationInfo
+    );
     public record ProductResponse
     (
         Guid Id,
@@ -20,6 +24,14 @@ namespace Contracts.Product
         public Guid CategoryId { get; init; }
         public string Name { get; init; }
         public string Image { get; init; }
+    }
+    public record PagedList {
+        public int Page { get; init; }
+        public int PageSize { get; init; }
+        public int TotalItemCount { get; init; }
+        public int TotalPageCount { get; init; }
+        public bool HasNextPage => Page * PageSize < TotalItemCount;
+        public bool HasPrevPage => Page > 1;
     }
 
 }

@@ -1,5 +1,6 @@
 ﻿using Application.Services.ProductService;
 using Contracts.Product;
+using Domain.Common.Models;
 using Mapster;
 
 namespace Api.Common.Mapping
@@ -21,6 +22,14 @@ namespace Api.Common.Mapping
                     Image = src.product.Category.Image
                 })
                 .Map(dest => dest, src => src.product);
+
+            config.NewConfig<PagedList<ProductResult>, PagedList>()
+                .Map(dest => dest.Page, src => src.Page)
+                .Map(dest => dest.PageSize, src => src.PageSize)
+                .Map(dest => dest.TotalPageCount, src => src.TotalPageCount)
+                .Map(dest => dest.TotalItemCount, src => src.TotalItemCount)
+                .Map(dest => dest.HasPrevPage, src => src.HasPrevPage)
+                .Map(dest => dest.HasNextPage, src => src.HasNextPage);
 
         }
     }

@@ -1,4 +1,5 @@
-﻿using Application.Services.AuthenticationService;
+﻿using Application.Common.Interfaces.Persistence;
+using Application.Services.AuthenticationService;
 using Domain.Common.Exceptions;
 using Domain.UserAggregate;
 using Infrastructure.Authentication;
@@ -22,7 +23,7 @@ namespace Tests.UnitTests.ApplicationTests
         {
             //Arrange
             JWTTokenGenerator tokenGenerator = new JWTTokenGenerator(Options.Create(InfrastructureUtils.JwtSettings));
-            var userRepository = new Mock<UserRepository>();
+            var userRepository = new Mock<IUserRepository>();
             var authenticationService = new AuthenticationService(tokenGenerator,userRepository.Object);
 
             User expectedUser = null;
@@ -43,7 +44,7 @@ namespace Tests.UnitTests.ApplicationTests
         {
             //Arrange
             JWTTokenGenerator tokenGenerator = new JWTTokenGenerator(Options.Create(InfrastructureUtils.JwtSettings));
-            var userRepository = new Mock<UserRepository>();
+            var userRepository = new Mock<IUserRepository>();
             var authenticationService = new AuthenticationService(tokenGenerator, userRepository.Object);
 
             User expectedUser = ApplicationUtils.User;
@@ -62,7 +63,7 @@ namespace Tests.UnitTests.ApplicationTests
         {
             //Arrange
             JWTTokenGenerator tokenGenerator = new JWTTokenGenerator(Options.Create(InfrastructureUtils.JwtSettings));
-            var userRepository = new Mock<UserRepository>();
+            var userRepository = new Mock<IUserRepository>();
             var authenticationService = new AuthenticationService(tokenGenerator, userRepository.Object);
 
             User expectedUser = ApplicationUtils.User;
@@ -83,7 +84,7 @@ namespace Tests.UnitTests.ApplicationTests
         {
             //Arrange
             JWTTokenGenerator tokenGenerator = new JWTTokenGenerator(Options.Create(InfrastructureUtils.JwtSettings));
-            var userRepository = new Mock<UserRepository>();
+            var userRepository = new Mock<IUserRepository>();
             var authenticationService = new AuthenticationService(tokenGenerator, userRepository.Object);
 
             User expectedUser = ApplicationUtils.User;
@@ -102,7 +103,7 @@ namespace Tests.UnitTests.ApplicationTests
         {
             //Arrange
             JWTTokenGenerator tokenGenerator = new JWTTokenGenerator(Options.Create(InfrastructureUtils.JwtSettings));
-            var userRepository = new Mock<UserRepository>();
+            var userRepository = new Mock<IUserRepository>();
             var authenticationService = new AuthenticationService(tokenGenerator, userRepository.Object);
 
             User expectedUser = null;
@@ -121,7 +122,7 @@ namespace Tests.UnitTests.ApplicationTests
         {
             //Arrange
             JWTTokenGenerator tokenGenerator = new JWTTokenGenerator(Options.Create(InfrastructureUtils.JwtSettings));
-            var userRepository = new Mock<UserRepository>();
+            var userRepository = new Mock<IUserRepository>();
             var authenticationService = new AuthenticationService(tokenGenerator, userRepository.Object);
 
             User expectedUser = null;

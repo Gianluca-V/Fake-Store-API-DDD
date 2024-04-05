@@ -20,7 +20,7 @@ namespace Api.Controllers
             productService = ProductService;
         }
 
-        [HttpGet]
+        /*[HttpGet]
         public async Task<IActionResult> GetProducts()
         {
             IEnumerable<ProductResult> productsResult = await productService.GetProducts();
@@ -28,6 +28,21 @@ namespace Api.Controllers
                 .Select(item => mapper.Map<ProductResponse>(item))
                 .ToList();
             return Ok(productsResponse);
+        }*/
+
+        [HttpGet]
+        public async Task<IActionResult> GetProducts(int page = 1, int pageSize = 10)
+        {
+            ProductPagedList productsResult = await productService.GetProducts(page, pageSize);
+
+            List<ProductResponse> productsResponse = productsResult.PagedList.Items
+                .Select(item => mapper.Map<ProductResponse>(item))
+                .ToList();
+
+            PagedList pagedList = mapper.Map<PagedList>(productsResult.PagedList);
+
+            ProductPaginatedResponse productPaginatedResponse = new ProductPaginatedResponse(productsResponse, pagedList);
+            return Ok(productPaginatedResponse);
         }
 
         [HttpGet]

@@ -11,6 +11,7 @@ namespace Application.Services.ProductService
     public interface IProductService
     {
         Task<IEnumerable<ProductResult>> GetProducts();
+        Task<ProductPagedList> GetProducts(int page, int pageSize);
         Task<ProductResult> GetProduct(string productId);
         Task<ProductResult> CreateProduct(string Name, string Description, float Price, string CategoryId, List<string> Images);
         Task<ProductResult> UpdateProduct(string Id ,string Name, string Description, float Price, string CategoryId, List<string> Images);

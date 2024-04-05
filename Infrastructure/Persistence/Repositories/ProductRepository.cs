@@ -1,5 +1,6 @@
 ﻿using Application.Common.Interfaces.Persistence;
 using Domain.CategoryAggregate;
+using Domain.Common.Models;
 using Domain.ProductAggregate;
 using Domain.ProductAggregate.ValueObjects;
 using Domain.UserAggregate;
@@ -51,6 +52,15 @@ namespace Infrastructure.Persistence.Repositories
             return await dbContext.Products.Include(p => p.Category).ToListAsync();
         }
 
+        public virtual async Task<List<Product>> GetProducts(int page, int pageSize)
+        {
+            return await dbContext.Products
+                .Include(p => p.Category)
+                .Skip((page-1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+        }
+
         public virtual async Task<Product?> UpdateProduct(string Id, string Name, string Description, float Price, Category Category, List<string> Images)
         {
             Product? product = await GetProductById(Id);
@@ -79,5 +89,6 @@ namespace Infrastructure.Persistence.Repositories
                 return false;
             }
         }
+
     }
 }
